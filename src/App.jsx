@@ -1,12 +1,14 @@
-// Animal Vlog Prompt Builder (React + Tailwind)
-
 import React, { useState } from 'react';
+
+// Simple custom Button component (no import)
 const Button = ({ children, ...props }) => (
-  <button className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700" {...props}>
+  <button
+    className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50"
+    {...props}
+  >
     {children}
   </button>
 );
-
 
 const options = {
   creature: ["Sasquatch", "Gorilla", "Raccoon", "Wolf", "Talking Cat"],
@@ -30,7 +32,7 @@ function getRandomValue(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export default function AnimalPromptBuilder() {
+export default function App() {
   const [values, setValues] = useState({
     creature: "Sasquatch",
     setting: "dense forest",
@@ -83,10 +85,9 @@ export default function AnimalPromptBuilder() {
 
       <div>
         <Button onClick={randomizeAll} className="mt-4 mr-2">🎲 Randomize</Button>
-        <Button
-          onClick={() => navigator.clipboard.writeText(prompt)}
-          variant="secondary"
-        >📋 Copy Prompt</Button>
+        <Button onClick={() => navigator.clipboard.writeText(prompt)}>
+          📋 Copy Prompt
+        </Button>
       </div>
 
       <div className="bg-gray-100 p-4 rounded text-gray-800 mt-6">
@@ -96,3 +97,6 @@ export default function AnimalPromptBuilder() {
     </div>
   );
 }
+
+
+e
