@@ -1,7 +1,12 @@
 // Animal Vlog Prompt Builder (React + Tailwind)
 
 import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
+const Button = ({ children, ...props }) => (
+  <button className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700" {...props}>
+    {children}
+  </button>
+);
+
 
 const options = {
   creature: ["Sasquatch", "Gorilla", "Raccoon", "Wolf", "Talking Cat"],
